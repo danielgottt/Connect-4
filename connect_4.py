@@ -7,22 +7,26 @@ COLUMN_COUNT = 7
 def create_board(): #Defines the board size
 	board = np.zeros((ROW_COUNT,COLUMN_COUNT))
 	return board
-
-def print_board(board): #Flips the board so numpy does start from top to bottom
+#Flips the board so numpy does start from top to bottom
+def print_board(board):
 	print(np.flip(board, 0))
-
-def drop_piece(board, row, col, piece): #Sets the inputed position to the piece
+	
+#Sets the inputed position to the piece
+def drop_piece(board, row, col, piece): 
 	board[row][col] = piece
-
-def valid_location(board, col): #This ensures the board has an empty position in the row
+	
+#This ensures the board has an empty position in the row
+def valid_location(board, col): 
 	return board[5][col] == 0
 
-def open_row(board, col): #Finds the first open row from the selected column and places the piece
+#Finds the first open row from the selected column and places the piece
+def open_row(board, col):
 	for r in range(ROW_COUNT):
 		if board[r][col] == 0:
 			return r
-
-def win_variables(board,piece): #This ensures the game can find a winning move
+		
+#This ensures the game can find a winning move
+def win_variables(board,piece):
 	# Horizontal positive and negative win check
 	for c in range(COLUMN_COUNT-3):
 		for r in range(6):
@@ -81,6 +85,7 @@ while not game_over:
 				game_over = True
 
 	print_board(board)
-
+	
+#The operator % (modulos) means diving 2 integers and the remainder will be returned to the loop
 	turn += 1
-	turn = turn % 2 #The operator % (modulos) means diving 2 integers and the remainder will be returned to the loop
+	turn = turn % 2
