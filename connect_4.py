@@ -4,9 +4,11 @@ import random
 ROW_COUNT = 6
 COLUMN_COUNT = 7
 
-def create_board(): #Defines the board size
+#Defines the board size
+def create_board():
 	board = np.zeros((ROW_COUNT,COLUMN_COUNT))
 	return board
+
 #Flips the board so numpy does start from top to bottom
 def print_board(board):
 	print(np.flip(board, 0))
